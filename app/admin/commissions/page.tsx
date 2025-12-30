@@ -58,7 +58,10 @@ export default function CommissionsPage() {
     if (!reference) return;
 
     try {
-      await commissionAPI.pay(id, reference);
+      await commissionAPI.pay(id, {
+  paymentReference: reference,
+});
+
       window.location.reload();
     } catch (error) {
       console.error("Failed to pay commission:", error);
