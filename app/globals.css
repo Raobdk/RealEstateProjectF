@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 250; /* #FAFAFA */
+    --foreground: 17 17 17; /* #111111 */
+    --primary: 97 57 219; /* #6139DB */
+    --primary-foreground: 255 255 255; /* #FFFFFF */
+    --secondary: 58 60 64; /* #3A3C40 */
+    --secondary-foreground: 250 250 250; /* #FAFAFA */
+    --muted: 231 234 239; /* #E7EAEF */
+    --muted-foreground: 58 60 64; /* #3A3C40 */
+    --accent: 231 234 239; /* #E7EAEF */
+    --accent-foreground: 17 17 17; /* #111111 */
+    --border: 231 234 239; /* #E7EAEF */
+    --input: 231 234 239; /* #E7EAEF */
+    --ring: 97 57 219; /* #6139DB */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-[#FAFAFA] text-[#111111];
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-sm;
+  }
+
+  /* Animated gradient text */
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Pulse animation delays */
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .delay-2000 {
+    animation-delay: 2s;
+  }
+
+  /* Smooth scale on hover */
+  .hover-scale {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.05);
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+
+  /* Table helpers */
+  .table-wrapper {
+    @apply overflow-x-auto -mx-4 sm:mx-0;
+  }
+
+  .table-wrapper table {
+    @apply min-w-full divide-y divide-[#E7EAEF];
+  }
+
+  /* Safe area padding for fixed navbars */
+  .safe-top {
+    @apply pt-16 lg:pt-[72px];
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #E7EAEF transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #E7EAEF;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #D1D5DB;
+  }
+}
+
